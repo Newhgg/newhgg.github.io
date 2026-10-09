@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newhgg · AI Web Developer</title>
+<style>
+:root{
+  --bg:#0a0e1a;--card:#131829;--border:#2a3451;
+  --text:#e4e9f7;--muted:#8b95b8;
+  --accent:#00d9ff;--accent2:#7c5cff;--accent3:#00ff9d;
+  --glow:0 0 24px rgba(0,217,255,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.65;
+  background-image:
+    radial-gradient(ellipse 800px 400px at 20% 0%,rgba(0,217,255,.08),transparent),
+    radial-gradient(ellipse 600px 400px at 80% 100%,rgba(124,92,255,.08),transparent);
+  min-height:100vh;
+}
+.wrap{max-width:960px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;padding:40px 0 48px}
+.avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 20px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:40px;font-weight:700;color:#fff;box-shadow:var(--glow);}
+.hero h1{font-size:2.4em;font-weight:700;letter-spacing:-.5px;margin-bottom:8px}
+.hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .tagline{color:var(--muted);font-size:1.1em;margin-bottom:24px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.badge{padding:6px 14px;border-radius:20px;font-size:.85em;background:rgba(0,217,255,.08);border:1px solid rgba(0,217,255,.3);color:var(--accent)}
+.badge.green{background:rgba(0,255,157,.08);border-color:rgba(0,255,157,.3);color:var(--accent3)}
+.badge.purple{background:rgba(124,92,255,.08);border-color:rgba(124,92,255,.3);color:var(--accent2)}
+section{margin:48px 0}
+.section-title{font-size:1.4em;font-weight:600;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.section-title::before{content:'';width:4px;height:24px;background:linear-gradient(180deg,var(--accent),var(--accent2));border-radius:2px}
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.tech{padding:14px;background:var(--card);border:1px solid var(--border);border-radius:10px;text-align:center;font-size:.95em;transition:.2s}
+.tech:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tech .cat{font-size:.75em;color:var(--muted);display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:1px}
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.projects{grid-template-columns:1fr}}
+.project{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;transition:.25s;display:flex;flex-direction:column;gap:10px}
+.project:hover{border-color:var(--accent);box-shadow:var(--glow);transform:translateY(-3px)}
+.project .icon{font-size:1.8em;margin-bottom:4px}
+.project h3{font-size:1.15em;font-weight:600}
+.project p{color:var(--muted);font-size:.92em;flex:1}
+.project .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.project .tag{font-size:.75em;padding:3px 8px;border-radius:6px;background:rgba(255,255,255,.06);color:var(--muted)}
+.project a.btn{display:inline-block;margin-top:8px;padding:8px 16px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#0a0e1a;font-weight:600;text-decoration:none;border-radius:8px;font-size:.9em;align-self:flex-start}
+.project a.btn:hover{opacity:.85}
+.project .live{display:inline-flex;align-items:center;gap:6px;font-size:.8em;color:var(--accent3)}
+.project .live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent3);box-shadow:0 0 8px var(--accent3)}
+.project .arch{font-size:.82em;color:var(--muted);margin-top:6px;padding:8px 12px;background:rgba(255,255,255,.03);border-radius:8px;border-left:2px solid var(--accent2);font-family:monospace}
+footer{text-align:center;padding:40px 0 20px;color:var(--muted);font-size:.85em;border-top:1px solid var(--border);margin-top:60px}
+footer a{color:var(--accent);text-decoration:none}
+footer .gh{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:6px 14px;background:rgba(255,255,255,.04);border-radius:20px}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="avatar">N</div>
+  <h1><span>Newhgg</span></h1>
+  <p class="tagline">大一学生 · 独立开发 · AI × Web × 3D × 网络 全栈</p>
+  <div class="badges">
+    <span class="badge">Next.js 14</span>
+    <span class="badge purple">Three.js</span>
+    <span class="badge green">Ollama RAG</span>
+    <span class="badge">TypeScript</span>
+    <span class="badge purple">AI Agent</span>
+    <span class="badge green">Python</span>
+    <span class="badge">ICT 网络</span>
+  </div>
+</div>
+
+<section>
+  <h2 class="section-title">作品</h2>
+  <div class="projects">
+
+    <div class="project">
+      <span class="icon">🏫</span>
+      <h3>AI Campus · 三栋楼智能平台</h3>
+      <p>传智杯 AI Web 开发挑战赛第9届 B 组作品。3D 校园地图 + 学习楼/宿舍楼/办公楼三栋楼功能模块，Next.js 14 + Three.js + 本地 Ollama RAG 问答。</p>
+      <span class="live">Live Demo</span>
+      <a class="btn" href="https://newhgg.github.io/ai-campus/" target="_blank">访问作品 →</a>
+      <div class="tags"><span class="tag">Next.js</span><span class="tag">Three.js</span><span class="tag">Ollama</span><span class="tag">Vercel AI SDK</span></div>
+    </div>
+
+    <div class="project">
+      <span class="icon">💻</span>
+      <h3>C 语言精讲包</h3>
+      <p>10 章 52 知识点深度拆解，从内存布局/预编译链/二进制视角讲 C 语言原理。3D 学习图谱 + 揉碎精讲 + 28 个练习源码。</p>
+      <span class="live">Live Demo</span>
+      <a class="btn" href="https://newhgg.github.io/c-lang-deep-dive/" target="_blank">访问作品 →</a>
+      <div class="tags"><span class="tag">Three.js</span><span class="tag">单文件</span><span class="tag">教学</span></div>
+    </div>
+
+    <div class="project">
+      <span class="icon">📚</span>
+      <h3>CET4 词汇打卡工具</h3>
+      <p>艾宾浩斯 9 级间隔复习算法 + 3320 词全量词库 + 15×7 热力图 + 3D 翻卡三档自评。单文件 36KB，零联网零账号。</p>
+      <span class="live">Live Demo</span>
+      <a class="btn" href="https://newhgg.github.io/cet4-flashcard/" target="_blank">访问作品 →</a>
+      <div class="tags"><span class="tag">单文件</span><span class="tag">算法</span><span class="tag">localStorage</span></div>
+    </div>
+
+    <div class="project">
+      <span class="icon">🪑</span>
+      <h3>3D 座位表</h3>
+      <p>Three.js 单文件应用，可视化教室座位布局与调整，低多边形风格 + 交互式操作。</p>
+      <span class="live">Live Demo</span>
+      <a class="btn" href="https://newhgg.github.io/seatplan/" target="_blank">访问作品 →</a>
+      <div class="tags"><span class="tag">Three.js</span><span class="tag">单文件</span></div>
+    </div>
+
+    <div class="project">
+      <span class="icon">🌐</span>
+      <h3>ICT 网络赛道知识图谱</h3>
+      <p>华为 ICT 大赛网络赛道全景知识图谱，覆盖数通/云计算/大数据方向，含知识点关系可视化、章节导航、记忆卡片。JARVIS AI 智能体出品。</p>
+      <span class="live">Live Demo</span>
+      <a class="btn" href="https://1234mac-studio.tail830780.ts.net/ict/" target="_blank">访问作品 →</a>
+      <div class="tags"><span class="tag">ICT</span><span class="tag">知识图谱</span><span class="tag">数通</span><span class="tag">华为</span></div>
+    </div>
+
+    <div class="project">
+      <span class="icon">🔌</span>
+      <h3>NAT 网络模拟器</h3>
+      <p>基于 Linux network namespaces + iptables 的 NAT/SNAT/MASQUERADE 数据包"变脸"过程可视化模拟器。含 3 节点拓扑（client-router-server）、实时抓包、逐包分析。</p>
+      <a class="btn" href="https://github.com/Newhgg/ict-tools" target="_blank">查看源码 →</a>
+      <div class="tags"><span class="tag">Linux</span><span class="tag">network namespace</span><span class="tag">iptables</span><span class="tag">NAT</span></div>
+    </div>
+
+    <div class="project">
+      <span class="icon">🤖</span>
+      <h3>JARVIS AI 智能体系统</h3>
+      <p>个人 AI 管家系统：人格 + 知识库 RAG + 语音交互 + 多端遥控。3D 全息控制台展示系统状态、LLM 对话、语音输入播报、扫描线特效。Three.js 3D 全息面板。</p>
+      <span class="live">Live Demo（3D HUD）</span>
+      <a class="btn" href="https://1234mac-studio.tail830780.ts.net/hud/" target="_blank">访问 3D HUD →</a>
+      <div class="tags"><span class="tag">Three.js</span><span class="tag">AI Agent</span><span class="tag">RAG</span><span class="tag">语音</span></div>
+    </div>
+
+    <div class="project">
+      <span class="icon">🎓</span>
+      <h3>班级学习平台</h3>
+      <p>全班学习中枢：5 门课导航、每日一题、课表、全局搜索、82 条内容三段式解读。老师后台（收集表/提交详情/CSV导出/AI助手）、四级打卡、C语言3D图谱、签到系统。</p>
+      <div class="arch">
+        🔒 因含真实班级数据已私有化<br>
+        ⚙️ 技术栈：React + 飞书 API + GitHub Pages + Caddy Funnel
+      </div>
+      <div class="tags"><span class="tag">React</span><span class="tag">飞书</span><span class="tag">Caddy</span><span class="tag">签到</span><span class="tag">AI助手</span></div>
+    </div>
+
+    <div class="project" style="grid-column:1/-1">
+      <span class="icon">🛰️</span>
+      <h3>AImac · 个人 AI 系统全景</h3>
+      <p>一套完整的本地 AI 系统：DSH 人格入口 + Hermes 技能库 + AnythingLLM 知识库 + Ollama 本地模型（27B/9B/35B）+ Caddy 反代 + Tailscale 远程访问。25+ 个作品卡片、6 个分类、系统状态自动探测、3D/2D 双面板。</p>
+      <div class="arch">
+        🏠 本地：M2 Max 32GB · Ollama 27B 常驻 17GB<br>
+        🌐 入口：Tailscale + Caddy Funnel + GitHub Pages<br>
+        📱 终端：iPhone PWA + 华为机语音台 + 三星电视 HUD
+      </div>
+      <div class="tags"><span class="tag">Ollama</span><span class="tag">AnythingLLM</span><span class="tag">Hermes</span><span class="tag">Caddy</span><span class="tag">Tailscale</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">技术栈</h2>
+  <div class="stack">
+    <div class="tech"><span class="cat">前端</span>React / Next.js 14</div>
+    <div class="tech"><span class="cat">3D</span>Three.js / R3F</div>
+    <div class="tech"><span class="cat">AI</span>Vercel AI SDK / Ollama</div>
+    <div class="tech"><span class="cat">AI</span>RAG / bge-m3 / 27B</div>
+    <div class="tech"><span class="cat">语言</span>TypeScript / Python</div>
+    <div class="tech"><span class="cat">网络</span>iptables / NAT / 路由</div>
+    <div class="tech"><span class="cat">样式</span>Tailwind / shadcn/ui</div>
+    <div class="tech"><span class="cat">部署</span>GitHub Pages / Vercel</div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">关于我</h2>
+  <div class="project" style="grid-column:1/-1">
+    <p>大一在读，独立开发者。做过一个完整的本地 AI 智能体系统（人格 + 知识库 RAG + 语音交互 + 多端遥控），日常靠它处理学习/运维/信息聚合。</p>
+    <p style="margin-top:10px">对全栈开发、AI 应用、3D 交互、网络技术有较强动手意愿和完整交付记录。当前方向：把 AI 能力真正落到 Web 产品里，做能直接用、有反馈、可持续迭代的东西。</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Newhgg · Made with <span style="color:var(--accent3)">♥</span> and a lot of coffee</p>
+  <p class="gh"><a href="https://github.com/Newhgg" target="_blank">GitHub / Newhgg</a></p>
+  <p style="margin-top:10px;font-size:.8em">联系：GitHub Issues · 或任何社交平台的 <code>@newhgg</code></p>
+</footer>
+
+</div>
+</body>
+</html>
